@@ -49,18 +49,7 @@ export default defineConfig({
         items: [
           { text: 'Document', link: '/api/api-doc' },
         ]
-      },
-      {
-        text: 'Support',
-        items: [
-          { text: 'Sponsor ❤️', link: '/support' },
-          { text: 'Contact', link: '/contact' },
-        ]
       }
-    ],
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/maillab/cloud-mail' },
-      { icon: 'telegram', link: 'https://t.me/cloud_mail_tg' },
     ],
     footer: {
       message: 'Cloud Mail — MIT License',

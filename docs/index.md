@@ -1,34 +1,38 @@
 ---
 layout: home
-title: Cloud Mail
+
+hero:
+  name: "Cloud Mail"
+  text: "A simple, responsive email service designed to run on Cloudflare Workers 🎉"
+  image:
+    src: /images/logo.png
+    alt: Cloud Mail Logo
+  actions:
+    - theme: brand
+      text: Live Demo
+      link: https://skymail.ink/
+    - theme: alt
+      text: Dashboard Deploy
+      link: /guide/dashboard
+    - theme: alt
+      text: Action Deploy
+      link: /guide/action
+
+features:
+  - title: 💰 Low-Cost Usage
+    details: No server required — deploy to Cloudflare Workers to reduce costs.
+  - title: 💻 Responsive Design
+    details: Automatically adapts to both desktop and most mobile browsers.
+  - title: 📧 Email Sending
+    details: Integrated with Resend, supporting bulk email sending and attachments.
+  - title: 📈 Data Visualization
+    details: Use ECharts to visualize system data, including user email growth.
+  - title: 🛡️ Admin Features
+    details: Admin controls for user and email management with RBAC-based access control.
+  - title: 📦 Attachment Handling
+    details: Send and receive attachments, stored and downloaded via R2 object storage.
+  - title: 🎨 Personalization
+    details: Customize website title, login background, and transparency.
+  - title: 🤖 CAPTCHA
+    details: Integrated with Turnstile CAPTCHA to prevent automated registration.
 ---
-
-# Cloud Mail
-
-A simple, responsive email service designed to run on Cloudflare Workers 🎉
-
-[Live Demo](https://skymail.ink/) · [Dashboard Deployment](/guide/dashboard) · [Action Deployment](/guide/action)
-
-## 💰 Low-Cost Usage
-No server required — deploy to Cloudflare Workers to reduce costs.
-
-## 💻 Responsive Design
-Automatically adapts to both desktop and most mobile browsers.
-
-## 📧 Email Sending
-Integrated with Resend, supporting bulk email sending and attachments.
-
-## 📈 Data Visualization
-Use ECharts to visualize system data, including user email growth.
-
-## 🛡️ Admin Features
-Admin controls for user and email management with RBAC-based access control.
-
-## 📦 Attachment Handling
-Send and receive attachments, stored and downloaded via R2 object storage.
-
-## 🎨 Personalization
-Customize website title, login background, and transparency.
-
-## 🤖 CAPTCHA
-Integrated with Turnstile CAPTCHA to prevent automated registration.
