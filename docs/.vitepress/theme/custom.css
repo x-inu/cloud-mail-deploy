@@ -1,309 +1,294 @@
 /* 
- * macOS Tahoe Glass — Dark + Orange Accent
- * Inspired by macOS Tahoe / VisionOS design language
+ * Modern SaaS / Cyber-Sleek Theme
+ * Deep dark background, animated vibrant orange gradients, glowing interactive elements.
  */
 
 :root {
-  --tahoe-orange: #ff9500;
-  --tahoe-orange-bright: #ff9f0a;
-  --tahoe-orange-light: #ffb340;
-  --tahoe-orange-glow: rgba(255, 149, 0, 0.25);
-  --tahoe-orange-soft: rgba(255, 149, 0, 0.1);
+  /* Vibrant Orange Palette */
+  --vp-c-brand-1: #ff512f;
+  --vp-c-brand-2: #f09819;
+  --vp-c-brand-3: #ffb347;
+  --vp-c-brand-soft: rgba(255, 81, 47, 0.12);
 
-  /* Glass surfaces */
-  --tahoe-glass: rgba(44, 44, 46, 0.75);
-  --tahoe-glass-border: rgba(255, 255, 255, 0.06);
-  --tahoe-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-  --tahoe-glass-blur: 20px;
+  /* Deep Dark / Zinc Backgrounds */
+  --vp-c-bg: #09090b;
+  --vp-c-bg-soft: #18181b;
+  --vp-c-bg-mute: #27272a;
+  --vp-c-bg-alt: #000000;
+  
+  /* Text Colors */
+  --vp-c-text-1: #fafafa;
+  --vp-c-text-2: #a1a1aa;
+  --vp-c-text-3: #71717a;
+  
+  /* Borders & Dividers */
+  --vp-c-border: #27272a;
+  --vp-c-divider: #27272a;
 
-  /* Theme hooks */
-  --vp-c-brand-1: var(--tahoe-orange);
-  --vp-c-brand-2: var(--tahoe-orange-bright);
-  --vp-c-brand-3: var(--tahoe-orange-light);
-  --vp-c-brand-soft: var(--tahoe-orange-soft);
-
-  --vp-c-bg: #1c1c1e;
-  --vp-c-bg-soft: #2c2c2e;
-  --vp-c-bg-mute: #3a3a3c;
-  --vp-c-bg-alt: #151517;
-  --vp-c-bg-elv: #2c2c2e;
-  --vp-c-text: #e5e5ea;
-  --vp-c-text-1: #f5f5f7;
-  --vp-c-text-2: #98989d;
-  --vp-c-text-3: #6e6e73;
-  --vp-c-border: #38383a;
-  --vp-c-divider: #38383a;
-  --vp-c-gap: #2c2c2e;
-  --vp-c-code: #232325;
-
-  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', sans-serif;
-  --vp-font-family-mono: 'SF Mono', ui-monospace, Menlo, Monaco, 'Cascadia Code', Consolas, monospace;
+  /* Glass/Glow Effects */
+  --theme-glass-bg: rgba(9, 9, 11, 0.7);
+  --theme-glow: rgba(255, 81, 47, 0.3);
+  --theme-glow-strong: rgba(240, 152, 25, 0.5);
 }
 
-/* ===== GLASS NAV BAR ===== */
+.dark {
+  /* Force variables in dark mode just in case */
+  --vp-c-brand-1: #ff512f;
+  --vp-c-brand-2: #f09819;
+  --vp-c-brand-3: #ffb347;
+}
+
+/* =========================================================
+   GLOBAL BACKGROUND (Grid Pattern)
+   ========================================================= */
+body {
+  background-color: var(--vp-c-bg);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center top;
+}
+
+/* =========================================================
+   NAVBAR (Frosted Glass)
+   ========================================================= */
 .VPNavBar {
-  background: var(--tahoe-glass) !important;
-  backdrop-filter: saturate(180%) blur(var(--tahoe-glass-blur)) !important;
-  -webkit-backdrop-filter: saturate(180%) blur(var(--tahoe-glass-blur)) !important;
-  border-bottom: 1px solid var(--tahoe-glass-border) !important;
-  box-shadow: var(--tahoe-glass-shadow) !important;
+  background: var(--theme-glass-bg) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
-/* ===== SIDEBAR ===== */
-.VPSidebar {
-  background: var(--vp-c-bg-alt) !important;
-  border-right: 1px solid var(--tahoe-glass-border) !important;
-}
-
-.VPSidebarItem .text {
-  color: var(--vp-c-text-2) !important;
-  font-weight: 450;
-  transition: color 0.15s, transform 0.15s;
-}
-
-.VPSidebarItem.is-active .text {
-  color: var(--tahoe-orange) !important;
-  font-weight: 600;
-}
-
-.VPSidebarItem .text:hover {
-  color: var(--vp-c-text-1) !important;
-}
-
-/* ===== HEADINGS ===== */
-.vp-doc h1 {
-  font-family: -apple-system, 'SF Pro Display', sans-serif;
-  font-weight: 700;
-  font-size: 2.5rem;
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--tahoe-orange) 0%, var(--tahoe-orange-light) 100%);
+/* =========================================================
+   HOME PAGE HERO
+   ========================================================= */
+.VPHomeHero .name {
+  font-size: 4rem !important;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+  /* Animated Gradient */
+  background: linear-gradient(
+    270deg,
+    var(--vp-c-brand-1),
+    var(--vp-c-brand-2),
+    #ff3366,
+    var(--vp-c-brand-1)
+  );
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.5em;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.VPHomeHero .text {
+  color: var(--vp-c-text-2) !important;
+  font-size: 1.3rem !important;
+}
+
+/* Logo glow */
+.VPHomeHero .image-bg {
+  display: block !important;
+  background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
+  filter: blur(60px);
+  opacity: 0.4;
+  border-radius: 50%;
+  animation: pulse-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(0.9); opacity: 0.3; }
+  100% { transform: scale(1.1); opacity: 0.5; }
+}
+
+/* =========================================================
+   BUTTONS (Primary Action)
+   ========================================================= */
+.VPButton.brand {
+  background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2)) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 0 15px var(--theme-glow) !important;
+  transition: all 0.3s ease !important;
+}
+
+.VPButton.brand:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 0 25px var(--theme-glow-strong) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* =========================================================
+   HOME FEATURES (Cards)
+   ========================================================= */
+.VPHomeFeatures .item .box {
+  background: rgba(24, 24, 27, 0.6) !important; /* bg-soft with opacity */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.VPHomeFeatures .item .box:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(24, 24, 27, 0.9) !important;
+  border-color: rgba(255, 81, 47, 0.5) !important;
+  box-shadow: 0 10px 30px -10px var(--theme-glow-strong) !important;
+}
+
+.VPHomeFeatures .item .box .icon {
+  background: var(--vp-c-brand-soft) !important;
+  color: var(--vp-c-brand-2) !important;
+  border-radius: 8px !important;
+}
+
+/* =========================================================
+   DOCUMENTATION STYLES
+   ========================================================= */
+/* Content Container Background (hide grid here for readability) */
+.VPContent {
+  background: var(--vp-c-bg);
+}
+
+.VPDoc {
+  background: var(--vp-c-bg);
+  box-shadow: 0 0 40px 40px var(--vp-c-bg); /* Blend with grid */
+}
+
+/* Headings */
+.vp-doc h1, .vp-doc h2, .vp-doc h3 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.vp-doc h1 {
+  font-weight: 800;
+  font-size: 2.5rem;
 }
 
 .vp-doc h2 {
-  font-family: -apple-system, 'SF Pro Display', sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--vp-c-text-1) !important;
-  border-top: none;
+  font-weight: 700;
+  border-bottom: 1px solid var(--vp-c-border);
+  padding-bottom: 0.3em;
   margin-top: 2em;
-  padding-top: 0.5em;
 }
 
-.vp-doc h2::before {
+/* Links */
+.vp-doc a {
+  color: var(--vp-c-brand-2);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--theme-glow-strong);
+  transition: all 0.2s;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-1);
+  border-bottom: 1px solid var(--vp-c-brand-1);
+}
+
+/* Code Blocks (Mac OS Window Style) */
+.vp-doc div[class*='language-'] {
+  background: #121214 !important;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 10px;
+  margin-top: 1em;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.vp-doc div[class*='language-']::before {
   content: '';
   display: block;
-  width: 32px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--tahoe-orange), var(--tahoe-orange-light));
-  border-radius: 4px;
-  margin-bottom: 0.75em;
+  height: 30px;
+  width: 100%;
+  background: #18181b;
+  border-bottom: 1px solid var(--vp-c-border);
+  border-radius: 10px 10px 0 0;
+  /* Mac Window Buttons (Red, Yellow, Green) */
+  background-image: 
+    radial-gradient(circle at 18px 15px, #ff5f56 4px, transparent 4px),
+    radial-gradient(circle at 38px 15px, #ffbd2e 4px, transparent 4px),
+    radial-gradient(circle at 58px 15px, #27c93f 4px, transparent 4px);
 }
 
-/* ===== TABLES ===== */
+/* Inline Code */
+.vp-doc :not(pre) > code {
+  background: rgba(255, 81, 47, 0.1) !important;
+  color: #ffaa00 !important;
+  border: 1px solid rgba(255, 81, 47, 0.2);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+}
+
+/* Custom Blocks (Tips, Warnings) */
+.vp-doc .custom-block {
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.vp-doc .custom-block.tip {
+  background: linear-gradient(to right, rgba(255, 81, 47, 0.05), transparent);
+  border-left: 4px solid var(--vp-c-brand-1);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+/* Tables */
 .vp-doc table {
-  border-radius: 12px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
   overflow: hidden;
-  border: 1px solid var(--tahoe-glass-border);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--vp-c-border);
 }
 
 .vp-doc th {
-  background: linear-gradient(135deg, var(--tahoe-orange), var(--tahoe-orange-bright)) !important;
-  color: #fff !important;
+  background: var(--vp-c-bg-mute);
   font-weight: 600;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  color: var(--vp-c-text-1);
+  border-bottom: 1px solid var(--vp-c-border);
 }
 
 .vp-doc td {
+  border-bottom: 1px solid var(--vp-c-border);
   background: var(--vp-c-bg-soft);
-  color: var(--vp-c-text);
-  border-bottom: 1px solid var(--vp-c-divider);
 }
 
 .vp-doc tr:last-child td {
   border-bottom: none;
 }
 
-.vp-doc tr:nth-child(even) td {
-  background: var(--vp-c-bg);
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+.VPSidebar {
+  background: rgba(9, 9, 11, 0.8) !important;
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
-/* ===== CODE BLOCKS ===== */
-.vp-doc div[class*='language-'] {
-  border-radius: 12px;
-  border: 1px solid var(--tahoe-glass-border);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  background: #1a1a1c !important;
+.VPSidebarItem.is-active > .item > .link > .text {
+  color: var(--vp-c-brand-2) !important;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(240, 152, 25, 0.3);
 }
 
-.vp-doc div[class*='language-']::before {
-  content: '' !important;
-  display: block;
-  height: 32px;
-  background: #232325;
-  border-radius: 12px 12px 0 0;
-  border-bottom: 1px solid var(--tahoe-glass-border);
-  background-image: radial-gradient(circle 5px, #ff5f57 0 100%), radial-gradient(circle 5px, #febc2e 0 100%), radial-gradient(circle 5px, #28c840 0 100%);
-  background-size: 40px 5px;
-  background-position: 12px 14px, 28px 14px, 44px 14px;
-  background-repeat: no-repeat;
-}
-
-/* Inline code */
-.vp-doc :not(pre) > code {
-  background: var(--vp-c-code) !important;
-  color: var(--tahoe-orange-bright) !important;
-  border-radius: 6px;
-  padding: 2px 8px;
-  font-size: 0.875em;
-  border: 1px solid var(--tahoe-glass-border);
-}
-
-/* ===== LINKS ===== */
-.vp-doc a {
-  color: var(--tahoe-orange);
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.15s, text-shadow 0.15s;
-}
-
-.vp-doc a:hover {
-  color: var(--tahoe-orange-light);
-  text-decoration: underline;
-}
-
-/* ===== CUSTOM BLOCKS ===== */
-.vp-doc .custom-block {
-  border-radius: 12px;
-  border-left: 4px solid var(--tahoe-orange);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-}
-
-.vp-doc .custom-block.tip {
-  background: var(--tahoe-orange-soft);
-  border-left-color: var(--tahoe-orange);
-}
-
-.vp-doc .custom-block.warning {
-  border-left-color: #ff9f0a;
-  background: rgba(255, 159, 10, 0.08);
-}
-
-.vp-doc .custom-block.danger {
-  border-left-color: #ff3b30;
-  background: rgba(255, 59, 48, 0.08);
-}
-
-/* ===== BUTTONS ===== */
-.VPButton.brand {
-  background: linear-gradient(135deg, var(--tahoe-orange), var(--tahoe-orange-bright)) !important;
-  border: none !important;
-  border-radius: 980px !important;
-  font-weight: 600 !important;
-  box-shadow: 0 4px 14px var(--tahoe-orange-glow) !important;
-  transition: transform 0.2s, box-shadow 0.2s !important;
-}
-
-.VPButton.brand:hover {
-  transform: scale(1.04) !important;
-  box-shadow: 0 6px 24px var(--tahoe-orange-glow) !important;
-}
-
-/* ===== HOME PAGE HERO ===== */
-.VPHomeHero .name {
-  font-family: -apple-system, 'SF Pro Display', sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  background: linear-gradient(135deg, var(--tahoe-orange) 0%, #ff6b00 50%, var(--tahoe-orange-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-size: 3.5rem !important;
-  line-height: 1.1;
-}
-
-.VPHomeHero .text {
-  color: var(--vp-c-text-2) !important;
-  font-size: 1.25rem !important;
-  max-width: 640px;
-  margin: 1em auto;
-}
-
-.VPHomeHero .image {
-  filter: drop-shadow(0 8px 32px var(--tahoe-orange-glow));
-}
-
-/* ===== HOME FEATURES ===== */
-.VPHomeFeatures .items {
-  gap: 16px !important;
-}
-
-.VPHomeFeatures .items .item .box {
-  background: var(--vp-c-bg-soft) !important;
-  border: 1px solid var(--tahoe-glass-border) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
-  backdrop-filter: blur(8px) !important;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-  padding: 24px !important;
-  height: 100%;
-}
-
-.VPHomeFeatures .items .item .box:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35) !important;
-  border-color: var(--tahoe-orange) !important;
-}
-
-.VPHomeFeatures .items .item .box .icon {
-  background: var(--tahoe-orange-soft) !important;
-  border-radius: 12px !important;
-  color: var(--tahoe-orange) !important;
-}
-
-/* ===== FOOTER ===== */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 .VPFooter {
-  border-top: 1px solid var(--tahoe-glass-border) !important;
-  background: var(--tahoe-glass) !important;
-  backdrop-filter: saturate(180%) blur(var(--tahoe-glass-blur)) !important;
-  color: var(--vp-c-text-2) !important;
-}
-
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--vp-c-bg-mute);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--tahoe-orange);
-}
-
-/* ===== TABLE OF CONTENTS (On this page) ===== */
-.VPDocAsideOutline .content .outline-item.active .outline-link {
-  color: var(--tahoe-orange) !important;
-}
-
-/* ===== DOC FOOTER PAGER ===== */
-.VPDocFooter .prev, .VPDocFooter .next {
-  background: var(--vp-c-bg-soft) !important;
-  border: 1px solid var(--tahoe-glass-border) !important;
-  border-radius: 12px !important;
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.VPDocFooter .prev:hover, .VPDocFooter .next:hover {
-  border-color: var(--tahoe-orange) !important;
-  transform: translateY(-1px);
+  background: transparent !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
 }

@@ -5,7 +5,7 @@ export default defineConfig({
   description: 'A simple, responsive email service designed to run on Cloudflare Workers',
   lang: 'en-US',
   base: '/',
-  appearance: 'dark',
+  appearance: 'force-dark',
   themeConfig: {
     siteTitle: 'Cloud Mail',
     logo: '/images/logo.png',
