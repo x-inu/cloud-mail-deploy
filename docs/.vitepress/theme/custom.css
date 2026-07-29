@@ -1,96 +1,309 @@
-/* macOS Tahoe Dark — simple recolor, original layout */
+/* 
+ * macOS Tahoe Glass — Dark + Orange Accent
+ * Inspired by macOS Tahoe / VisionOS design language
+ */
 
 :root {
-  --vp-c-orange-1: #ff9500;
-  --vp-c-orange-2: #ff9f0a;
-  --vp-c-orange-3: #ffb340;
-  --vp-c-orange-soft: rgba(255, 149, 0, 0.14);
+  --tahoe-orange: #ff9500;
+  --tahoe-orange-bright: #ff9f0a;
+  --tahoe-orange-light: #ffb340;
+  --tahoe-orange-glow: rgba(255, 149, 0, 0.25);
+  --tahoe-orange-soft: rgba(255, 149, 0, 0.1);
 
-  --vp-c-brand-1: var(--vp-c-orange-1);
-  --vp-c-brand-2: var(--vp-c-orange-2);
-  --vp-c-brand-3: var(--vp-c-orange-3);
-  --vp-c-brand-soft: var(--vp-c-orange-soft);
+  /* Glass surfaces */
+  --tahoe-glass: rgba(44, 44, 46, 0.75);
+  --tahoe-glass-border: rgba(255, 255, 255, 0.06);
+  --tahoe-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --tahoe-glass-blur: 20px;
+
+  /* Theme hooks */
+  --vp-c-brand-1: var(--tahoe-orange);
+  --vp-c-brand-2: var(--tahoe-orange-bright);
+  --vp-c-brand-3: var(--tahoe-orange-light);
+  --vp-c-brand-soft: var(--tahoe-orange-soft);
 
   --vp-c-bg: #1c1c1e;
   --vp-c-bg-soft: #2c2c2e;
   --vp-c-bg-mute: #3a3a3c;
-  --vp-c-bg-alt: #000;
+  --vp-c-bg-alt: #151517;
+  --vp-c-bg-elv: #2c2c2e;
   --vp-c-text: #e5e5ea;
   --vp-c-text-1: #f5f5f7;
-  --vp-c-text-2: #a1a1a6;
+  --vp-c-text-2: #98989d;
   --vp-c-text-3: #6e6e73;
-  --vp-c-border: #3a3a3c;
-  --vp-c-divider: #3a3a3c;
+  --vp-c-border: #38383a;
+  --vp-c-divider: #38383a;
   --vp-c-gap: #2c2c2e;
-  --vp-c-code: #2a2a2c;
+  --vp-c-code: #232325;
 
-  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --vp-font-family-mono: ui-monospace, SF Mono, Menlo, Monaco, 'Cascadia Code', Consolas, monospace;
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', sans-serif;
+  --vp-font-family-mono: 'SF Mono', ui-monospace, Menlo, Monaco, 'Cascadia Code', Consolas, monospace;
 }
 
-.dark {
-  --vp-c-bg: #1c1c1e;
-  --vp-c-bg-soft: #2c2c2e;
-  --vp-c-bg-mute: #3a3a3c;
-  --vp-c-bg-alt: #000;
-  --vp-c-text: #e5e5ea;
-  --vp-c-text-1: #f5f5f7;
-  --vp-c-text-2: #a1a1a6;
-  --vp-c-text-3: #6e6e73;
-  --vp-c-border: #3a3a3c;
-  --vp-c-divider: #3a3a3c;
-  --vp-c-gap: #2c2c2e;
-  --vp-c-code: #2a2a2c;
-
-  --vp-c-brand-1: var(--vp-c-orange-1);
-  --vp-c-brand-2: var(--vp-c-orange-2);
-  --vp-c-brand-3: var(--vp-c-orange-3);
-  --vp-c-brand-soft: var(--vp-c-orange-soft);
+/* ===== GLASS NAV BAR ===== */
+.VPNavBar {
+  background: var(--tahoe-glass) !important;
+  backdrop-filter: saturate(180%) blur(var(--tahoe-glass-blur)) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(var(--tahoe-glass-blur)) !important;
+  border-bottom: 1px solid var(--tahoe-glass-border) !important;
+  box-shadow: var(--tahoe-glass-shadow) !important;
 }
 
-/* Links */
-.vp-doc a {
-  color: var(--vp-c-orange-1);
-  font-weight: 500;
-  transition: color 0.15s;
-}
-.vp-doc a:hover {
-  color: var(--vp-c-orange-3);
+/* ===== SIDEBAR ===== */
+.VPSidebar {
+  background: var(--vp-c-bg-alt) !important;
+  border-right: 1px solid var(--tahoe-glass-border) !important;
 }
 
-/* Active sidebar link */
+.VPSidebarItem .text {
+  color: var(--vp-c-text-2) !important;
+  font-weight: 450;
+  transition: color 0.15s, transform 0.15s;
+}
+
 .VPSidebarItem.is-active .text {
-  color: var(--vp-c-orange-1) !important;
+  color: var(--tahoe-orange) !important;
+  font-weight: 600;
+}
+
+.VPSidebarItem .text:hover {
+  color: var(--vp-c-text-1) !important;
+}
+
+/* ===== HEADINGS ===== */
+.vp-doc h1 {
+  font-family: -apple-system, 'SF Pro Display', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--tahoe-orange) 0%, var(--tahoe-orange-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5em;
+}
+
+.vp-doc h2 {
+  font-family: -apple-system, 'SF Pro Display', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--vp-c-text-1) !important;
+  border-top: none;
+  margin-top: 2em;
+  padding-top: 0.5em;
+}
+
+.vp-doc h2::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--tahoe-orange), var(--tahoe-orange-light));
+  border-radius: 4px;
+  margin-bottom: 0.75em;
+}
+
+/* ===== TABLES ===== */
+.vp-doc table {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--tahoe-glass-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.vp-doc th {
+  background: linear-gradient(135deg, var(--tahoe-orange), var(--tahoe-orange-bright)) !important;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.vp-doc td {
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc tr:last-child td {
+  border-bottom: none;
+}
+
+.vp-doc tr:nth-child(even) td {
+  background: var(--vp-c-bg);
+}
+
+/* ===== CODE BLOCKS ===== */
+.vp-doc div[class*='language-'] {
+  border-radius: 12px;
+  border: 1px solid var(--tahoe-glass-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  background: #1a1a1c !important;
+}
+
+.vp-doc div[class*='language-']::before {
+  content: '' !important;
+  display: block;
+  height: 32px;
+  background: #232325;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid var(--tahoe-glass-border);
+  background-image: radial-gradient(circle 5px, #ff5f57 0 100%), radial-gradient(circle 5px, #febc2e 0 100%), radial-gradient(circle 5px, #28c840 0 100%);
+  background-size: 40px 5px;
+  background-position: 12px 14px, 28px 14px, 44px 14px;
+  background-repeat: no-repeat;
 }
 
 /* Inline code */
 .vp-doc :not(pre) > code {
-  background: var(--vp-c-bg-mute) !important;
-  color: var(--vp-c-orange-2) !important;
-  border-radius: 4px;
-  padding: 2px 6px;
+  background: var(--vp-c-code) !important;
+  color: var(--tahoe-orange-bright) !important;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.875em;
+  border: 1px solid var(--tahoe-glass-border);
 }
 
-/* Table header */
-.vp-doc th {
-  background: var(--vp-c-orange-1) !important;
-  color: #fff !important;
+/* ===== LINKS ===== */
+.vp-doc a {
+  color: var(--tahoe-orange);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s, text-shadow 0.15s;
 }
 
-/* Custom block tip */
+.vp-doc a:hover {
+  color: var(--tahoe-orange-light);
+  text-decoration: underline;
+}
+
+/* ===== CUSTOM BLOCKS ===== */
+.vp-doc .custom-block {
+  border-radius: 12px;
+  border-left: 4px solid var(--tahoe-orange);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
 .vp-doc .custom-block.tip {
-  background: var(--vp-c-brand-soft);
-  border-left-color: var(--vp-c-orange-1);
+  background: var(--tahoe-orange-soft);
+  border-left-color: var(--tahoe-orange);
 }
 
-/* Nav/search accent */
-.VPNavBarSearch button.focus {
-  border-color: var(--vp-c-orange-1) !important;
+.vp-doc .custom-block.warning {
+  border-left-color: #ff9f0a;
+  background: rgba(255, 159, 10, 0.08);
 }
 
-/* Buttons */
+.vp-doc .custom-block.danger {
+  border-left-color: #ff3b30;
+  background: rgba(255, 59, 48, 0.08);
+}
+
+/* ===== BUTTONS ===== */
 .VPButton.brand {
-  background: linear-gradient(135deg, var(--vp-c-orange-1), var(--vp-c-orange-2)) !important;
+  background: linear-gradient(135deg, var(--tahoe-orange), var(--tahoe-orange-bright)) !important;
+  border: none !important;
   border-radius: 980px !important;
   font-weight: 600 !important;
+  box-shadow: 0 4px 14px var(--tahoe-orange-glow) !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+
+.VPButton.brand:hover {
+  transform: scale(1.04) !important;
+  box-shadow: 0 6px 24px var(--tahoe-orange-glow) !important;
+}
+
+/* ===== HOME PAGE HERO ===== */
+.VPHomeHero .name {
+  font-family: -apple-system, 'SF Pro Display', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--tahoe-orange) 0%, #ff6b00 50%, var(--tahoe-orange-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3.5rem !important;
+  line-height: 1.1;
+}
+
+.VPHomeHero .text {
+  color: var(--vp-c-text-2) !important;
+  font-size: 1.25rem !important;
+  max-width: 640px;
+  margin: 1em auto;
+}
+
+.VPHomeHero .image {
+  filter: drop-shadow(0 8px 32px var(--tahoe-orange-glow));
+}
+
+/* ===== HOME FEATURES ===== */
+.VPHomeFeatures .items {
+  gap: 16px !important;
+}
+
+.VPHomeFeatures .items .item .box {
+  background: var(--vp-c-bg-soft) !important;
+  border: 1px solid var(--tahoe-glass-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(8px) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  padding: 24px !important;
+  height: 100%;
+}
+
+.VPHomeFeatures .items .item .box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35) !important;
+  border-color: var(--tahoe-orange) !important;
+}
+
+.VPHomeFeatures .items .item .box .icon {
+  background: var(--tahoe-orange-soft) !important;
+  border-radius: 12px !important;
+  color: var(--tahoe-orange) !important;
+}
+
+/* ===== FOOTER ===== */
+.VPFooter {
+  border-top: 1px solid var(--tahoe-glass-border) !important;
+  background: var(--tahoe-glass) !important;
+  backdrop-filter: saturate(180%) blur(var(--tahoe-glass-blur)) !important;
+  color: var(--vp-c-text-2) !important;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-bg-mute);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tahoe-orange);
+}
+
+/* ===== TABLE OF CONTENTS (On this page) ===== */
+.VPDocAsideOutline .content .outline-item.active .outline-link {
+  color: var(--tahoe-orange) !important;
+}
+
+/* ===== DOC FOOTER PAGER ===== */
+.VPDocFooter .prev, .VPDocFooter .next {
+  background: var(--vp-c-bg-soft) !important;
+  border: 1px solid var(--tahoe-glass-border) !important;
+  border-radius: 12px !important;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.VPDocFooter .prev:hover, .VPDocFooter .next:hover {
+  border-color: var(--tahoe-orange) !important;
+  transform: translateY(-1px);
 }

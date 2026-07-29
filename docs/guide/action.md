@@ -52,7 +52,7 @@
 
 ## Configure Email Forwarding
 
-1. Refer to the Dashboard deployment steps: [Configure Email Forwarding](/en/guide/dashboard#configure-email-forwarding)
+1. Refer to the Dashboard deployment steps: [Configure Email Forwarding](/guide/dashboard#configure-email-forwarding)
 
 2. Open the custom domain in a browser and create an admin account to log in.
 

@@ -7,7 +7,7 @@ title: Cloud Mail
 
 A simple, responsive email service designed to run on Cloudflare Workers 🎉
 
-[Live Demo](https://skymail.ink/) · [Dashboard Deployment](/en/guide/dashboard) · [Action Deployment](/en/guide/action)
+[Live Demo](https://skymail.ink/) · [Dashboard Deployment](/guide/dashboard) · [Action Deployment](/guide/action)
 
 ## 💰 Low-Cost Usage
 No server required — deploy to Cloudflare Workers to reduce costs.
