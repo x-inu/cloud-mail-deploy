@@ -1,43 +1,58 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Cloud Mail Deploy',
-  description: 'Complete guide to deploy Cloud Mail to Cloudflare Workers',
+  title: 'Cloud Mail',
+  description: 'A simple, responsive email service designed to run on Cloudflare Workers',
   lang: 'en-US',
+  base: '/',
   themeConfig: {
-    siteTitle: 'Cloud Mail Deploy',
+    siteTitle: 'Cloud Mail',
+    logo: '/images/logo.png',
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/' },
-      { text: 'Features', link: '/features/' },
+      { text: 'Home', link: '/en/' },
+      { text: 'Document', link: '/en/preview/description' },
+      { text: 'Sponsor ❤️', link: '/en/support' },
     ],
     sidebar: {
-      '/guide/': [
+      '/en/guide/': [
         {
-          text: 'Deployment Guide',
+          text: 'Guide',
           items: [
-            { text: 'Introduction', link: '/guide/' },
-            { text: 'Prerequisites', link: '/guide/prerequisites' },
-            { text: 'Dashboard Deployment', link: '/guide/dashboard' },
-            { text: 'GitHub Actions Deployment', link: '/guide/action' },
+            { text: 'Dashboard Deployment', link: '/en/guide/dashboard' },
+            { text: 'GitHub Actions Deployment', link: '/en/guide/action' },
+            { text: 'Command Deployment', link: '/en/guide/command' },
+            { text: 'Other Variables', link: '/en/guide/environment' },
+            { text: 'Project Updates', link: '/en/guide/update' },
           ]
         }
       ],
-      '/features/': [
+      '/en/system/': [
         {
-          text: 'Features',
+          text: 'System',
           items: [
-            { text: 'All Features', link: '/features/' },
+            { text: 'Email Forwarding', link: '/en/system/forward' },
+            { text: 'Email Sending', link: '/en/system/sending' },
+            { text: 'Turnstile', link: '/en/system/turnstile' },
+            { text: 'Object Storage', link: '/en/system/object-storage' },
+          ]
+        }
+      ],
+      '/en/api/': [
+        {
+          text: 'API',
+          items: [
+            { text: 'API Document', link: '/en/api/api-doc' },
           ]
         }
       ]
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/maillab/cloud-mail' }
+      { icon: 'github', link: 'https://github.com/maillab/cloud-mail' },
+      { icon: 'telegram', link: 'https://t.me/cloud_mail_tg' },
     ],
     footer: {
-      message: 'MIT License — Cloud Mail Deployment Guide',
-      copyright: `Copyright ${new Date().getFullYear()}`,
+      message: 'Cloud Mail — MIT License',
+      copyright: 'Built with VitePress',
     }
   }
 })

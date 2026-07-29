@@ -1,16 +1,16 @@
 # Cloud Mail Deploy
 
-Documentation for deploying Cloud Mail to Cloudflare Workers.
+Documentation site for deploying [Cloud Mail](https://github.com/maillab/cloud-mail) to Cloudflare Workers.
 
-🌐 **Live site:** [doc.xinu.my.id](https://doc.xinu.my.id)
+🌐 **Live:** [doc.xinu.my.id](https://doc.xinu.my.id)
 
-## Development
+## Local Dev
 
 ```bash
 npm install
 npm run docs:dev
 ```
 
-## Deployment
+## Deploy
 
-Push to `main` — auto-deploys to Cloudflare Pages.
+Push to `main` → auto-deploys to Cloudflare Pages.
