@@ -6,6 +6,9 @@ export default defineConfig({
   lang: 'en-US',
   base: '/',
   appearance: 'force-dark',
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/images/logo.png' }]
+  ],
   themeConfig: {
     siteTitle: 'Cloud Mail',
     logo: '/images/logo.png',
@@ -50,10 +53,6 @@ export default defineConfig({
           { text: 'Document', link: '/api/api-doc' },
         ]
       }
-    ],
-    footer: {
-      message: 'Cloud Mail — MIT License',
-      copyright: 'Built with VitePress',
-    }
+    ]
   }
 })
