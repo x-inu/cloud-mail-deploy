@@ -1,264 +1,96 @@
-/* macOS Tahoe Theme — Orange Accent — Dark Default */
+/* macOS Tahoe Dark — simple recolor, original layout */
+
 :root {
-  /* Tahoe base palette */
   --vp-c-orange-1: #ff9500;
   --vp-c-orange-2: #ff9f0a;
   --vp-c-orange-3: #ffb340;
   --vp-c-orange-soft: rgba(255, 149, 0, 0.14);
 
-  /* Override brand colors */
   --vp-c-brand-1: var(--vp-c-orange-1);
   --vp-c-brand-2: var(--vp-c-orange-2);
   --vp-c-brand-3: var(--vp-c-orange-3);
   --vp-c-brand-soft: var(--vp-c-orange-soft);
 
-  /* macOS glass surfaces */
-  --vp-glass-bg: rgba(30, 30, 32, 0.72);
-  --vp-glass-border: rgba(255, 255, 255, 0.08);
-  --vp-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   --vp-c-bg: #1c1c1e;
   --vp-c-bg-soft: #2c2c2e;
   --vp-c-bg-mute: #3a3a3c;
-  --vp-c-bg-alt: #000000;
+  --vp-c-bg-alt: #000;
   --vp-c-text: #e5e5ea;
   --vp-c-text-1: #f5f5f7;
   --vp-c-text-2: #a1a1a6;
   --vp-c-text-3: #6e6e73;
+  --vp-c-border: #3a3a3c;
+  --vp-c-divider: #3a3a3c;
+  --vp-c-gap: #2c2c2e;
+  --vp-c-code: #2a2a2c;
 
-  /* macOS system font */
-  --vp-font-family-base: -apple-system, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', sans-serif;
-  --vp-font-family-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
-
-  /* Border radius — Tahoe style */
-  --vp-radius: 12px;
-  --vp-radius-sm: 8px;
-
-  /* Code bg */
-  --vp-c-bg-code: #2a2a2c;
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --vp-font-family-mono: ui-monospace, SF Mono, Menlo, Monaco, 'Cascadia Code', Consolas, monospace;
 }
 
-/* --- macOS Tahoe glass components --- */
+.dark {
+  --vp-c-bg: #1c1c1e;
+  --vp-c-bg-soft: #2c2c2e;
+  --vp-c-bg-mute: #3a3a3c;
+  --vp-c-bg-alt: #000;
+  --vp-c-text: #e5e5ea;
+  --vp-c-text-1: #f5f5f7;
+  --vp-c-text-2: #a1a1a6;
+  --vp-c-text-3: #6e6e73;
+  --vp-c-border: #3a3a3c;
+  --vp-c-divider: #3a3a3c;
+  --vp-c-gap: #2c2c2e;
+  --vp-c-code: #2a2a2c;
 
-/* Nav bar glass effect */
-.VPNavBar {
-  background: var(--vp-glass-bg) !important;
-  backdrop-filter: saturate(180%) blur(24px) !important;
-  -webkit-backdrop-filter: saturate(180%) blur(24px) !important;
-  border-bottom: 1px solid var(--vp-glass-border) !important;
-  box-shadow: var(--vp-glass-shadow) !important;
-}
-
-.VPNavBar.home {
-  background: transparent !important;
-  backdrop-filter: none !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
-}
-
-/* Sidebar */
-.VPSidebar {
-  background: var(--vp-c-bg) !important;
-  border-right: 1px solid var(--vp-glass-border) !important;
+  --vp-c-brand-1: var(--vp-c-orange-1);
+  --vp-c-brand-2: var(--vp-c-orange-2);
+  --vp-c-brand-3: var(--vp-c-orange-3);
+  --vp-c-brand-soft: var(--vp-c-orange-soft);
 }
 
 /* Links */
 .vp-doc a {
   color: var(--vp-c-orange-1);
-  text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: color 0.15s;
 }
-
 .vp-doc a:hover {
   color: var(--vp-c-orange-3);
-  text-decoration: underline;
 }
 
-/* Headings */
-.vp-doc h1 {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--vp-c-orange-1), var(--vp-c-orange-3));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.vp-doc h2 {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  border-top: none;
-  margin-top: 40px;
-  padding-top: 8px;
-  color: var(--vp-c-text-1) !important;
-}
-
-.vp-doc h2::before {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--vp-c-orange-1), var(--vp-c-orange-3));
-  border-radius: 4px;
-  margin-bottom: 12px;
-}
-
-.vp-doc h3, .vp-doc h4 {
-  color: var(--vp-c-text-1) !important;
-}
-
-/* Tables — glass style */
-.vp-doc table {
-  border-radius: var(--vp-radius);
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--vp-glass-border);
-}
-
-.vp-doc th {
-  background: var(--vp-c-orange-1) !important;
-  color: white !important;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-.vp-doc td {
-  background: var(--vp-c-bg-soft);
-  color: var(--vp-c-text);
-}
-
-.vp-doc tr:nth-child(even) td {
-  background: var(--vp-c-bg);
-}
-
-/* Code blocks */
-.vp-doc div[class*='language-'] {
-  border-radius: var(--vp-radius);
-  box-shadow: var(--vp-glass-shadow);
-  border: 1px solid var(--vp-glass-border);
-}
-
-/* Blockquotes / tips / warnings */
-.vp-doc .custom-block {
-  border-radius: var(--vp-radius-sm);
-  border-left: 4px solid var(--vp-c-orange-1);
-  box-shadow: var(--vp-glass-shadow);
-}
-
-.vp-doc .custom-block.tip {
-  border-left-color: var(--vp-c-orange-1);
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-text);
-}
-
-.vp-doc .custom-block.warning {
-  border-left-color: #ff9f0a;
-  background: rgba(255, 159, 10, 0.1);
-  color: var(--vp-c-text);
-}
-
-/* Buttons / badges */
-.VPButton.brand {
-  background: linear-gradient(135deg, var(--vp-c-orange-1), var(--vp-c-orange-2)) !important;
-  border-radius: 980px !important;
-  font-weight: 600 !important;
-  box-shadow: 0 2px 8px rgba(255, 149, 0, 0.3) !important;
-  transition: all 0.2s ease !important;
-}
-
-.VPButton.brand:hover {
-  transform: scale(1.02) !important;
-  box-shadow: 0 4px 16px rgba(255, 149, 0, 0.4) !important;
-}
-
-/* Home page hero */
-.VPHomeHero .name {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--vp-c-orange-1), #ff6b00, var(--vp-c-orange-3));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.VPHomeHero .text {
-  color: var(--vp-c-text-2) !important;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--vp-c-bg-mute);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--vp-c-orange-1);
-}
-
-/* Footer */
-.VPFooter {
-  border-top: 1px solid var(--vp-glass-border) !important;
-  background: var(--vp-glass-bg) !important;
-  backdrop-filter: saturate(180%) blur(20px) !important;
-  color: var(--vp-c-text-2) !important;
-}
-
-/* Sidebar links */
-.VPSidebarItem .text {
-  color: var(--vp-c-text-2) !important;
-  transition: color 0.15s ease;
-}
-
+/* Active sidebar link */
 .VPSidebarItem.is-active .text {
   color: var(--vp-c-orange-1) !important;
 }
 
-/* Badge */
-.VPSidebarItem .badge {
-  background: var(--vp-c-orange-1) !important;
-}
-
-/* Home features */
-.VPHomeFeatures .items .item .box {
-  background: var(--vp-c-bg-soft) !important;
-  border: 1px solid var(--vp-glass-border) !important;
-  border-radius: var(--vp-radius) !important;
-  box-shadow: var(--vp-glass-shadow) !important;
-  transition: all 0.25s ease !important;
-}
-
-.VPHomeFeatures .items .item .box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
-  border-color: var(--vp-c-orange-2) !important;
-}
-
-/* Search / dialog */
-.VPLocalSearchBox, .VPDocFooter .prev, .VPDocFooter .next {
-  background: var(--vp-c-bg-soft) !important;
-  border: 1px solid var(--vp-glass-border) !important;
-}
-
 /* Inline code */
-.vp-doc code {
-  background: var(--vp-c-bg-code) !important;
+.vp-doc :not(pre) > code {
+  background: var(--vp-c-bg-mute) !important;
   color: var(--vp-c-orange-2) !important;
   border-radius: 4px;
   padding: 2px 6px;
 }
 
-/* Page container */
-.VPContent {
-  background: var(--vp-c-bg);
+/* Table header */
+.vp-doc th {
+  background: var(--vp-c-orange-1) !important;
+  color: #fff !important;
+}
+
+/* Custom block tip */
+.vp-doc .custom-block.tip {
+  background: var(--vp-c-brand-soft);
+  border-left-color: var(--vp-c-orange-1);
+}
+
+/* Nav/search accent */
+.VPNavBarSearch button.focus {
+  border-color: var(--vp-c-orange-1) !important;
+}
+
+/* Buttons */
+.VPButton.brand {
+  background: linear-gradient(135deg, var(--vp-c-orange-1), var(--vp-c-orange-2)) !important;
+  border-radius: 980px !important;
+  font-weight: 600 !important;
 }
