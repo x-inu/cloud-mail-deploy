@@ -9,9 +9,6 @@ hero:
     alt: Cloud Mail Logo
   actions:
     - theme: brand
-      text: Live Demo
-      link: https://skymail.ink/
-    - theme: alt
       text: Dashboard Deploy
       link: /guide/dashboard
     - theme: alt
